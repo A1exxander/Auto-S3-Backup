@@ -11,7 +11,7 @@ if [ -z "$(aws configure list)" ]; then
     exit 2
 fi
 
-CONFIG_FILE="file_config.cfg"
+CONFIG_FILE="config_file.cfg"
 
 # Check config file exists and is not empty
 if [ ! -f "$CONFIG_FILE" -o ! -s "$CONFIG_FILE" ]; then
@@ -39,7 +39,3 @@ aws s3 cp "$backup_name.tar.gz" "s3://my-backups/$backup_name"
 # Cleanup temp files & folders
 rm -rf "$backup_name"
 rm "$backup_name.tar.gz"
-
-
-
-
